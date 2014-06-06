@@ -66,12 +66,23 @@ public class SimpleUserLoggerFrame {
 		});
 
 		HookListener hookListener = new HookListener() {
-			public void mouseReleased(com.simpleuserinputhook.windows.listener.HookMouseEvent mouseEvent) {
+			public void mouseReleased(HookMouseEvent mouseEvent) {
 				jTextArea.append("Mouse Released " + mouseEvent + "\n");
 			}
 
-			public void mousePressed(com.simpleuserinputhook.windows.listener.HookMouseEvent mouseEvent) {
+			public void mousePressed(HookMouseEvent mouseEvent) {
 				jTextArea.append("Mouse Pressed " + mouseEvent + "\n");
+			}
+
+			public void mouseMouved(HookMouseEvent mouseEvent) {
+			}
+
+			public void mouseWheelUp(HookMouseEvent mouseEvent) {
+				jTextArea.append("Mouse Wheel UP " + mouseEvent + "\n");
+			}
+
+			public void mouseWheelDown(HookMouseEvent mouseEvent) {
+				jTextArea.append("Mouse Wheel DOWN " + mouseEvent + "\n");
 			}
 
 			public void keyReleased(int keyCode) {
@@ -97,18 +108,6 @@ public class SimpleUserLoggerFrame {
 				button.setText("STOP");
 			}
 
-			public void mouseMouved(HookMouseEvent mouseEventButton) {
-
-			}
-
-			public void mouseWheelUp(HookMouseEvent mouseEventButton) {
-				jTextArea.append("Mouse Wheel UP\n");
-
-			}
-
-			public void mouseWheelDown(HookMouseEvent mouseEventButton) {
-				jTextArea.append("Mouse Wheel DOWN\n");
-			}
 		};
 
 		windowsHook = new WindowsHook();
