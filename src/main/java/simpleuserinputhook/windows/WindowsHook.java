@@ -3,6 +3,9 @@ package simpleuserinputhook.windows;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import simpleuserinputhook.windows.key.KeyHookHelper;
 import simpleuserinputhook.windows.listener.HookListener;
 import simpleuserinputhook.windows.mouse.MouseHookHelper;
@@ -23,6 +26,8 @@ import com.sun.jna.platform.win32.WinUser.MSG;
 
 public class WindowsHook {
 
+	private static final Logger logger = LoggerFactory.getLogger(WindowsHook.class);
+
 	private static User32 user32;
 	private static HHOOK hhookMouse, hhookKey;
 	private static List<HookListener> hookListeners = new ArrayList<HookListener>();
@@ -31,18 +36,23 @@ public class WindowsHook {
 	private boolean initialised = false;
 
 	public void init() throws Exception {
+		logger.info("Initialising Hook");
 		if (!Platform.isWindows()) {
 			throw new Exception("Unsupported OS");
 		}
 		if (user32 == null) {
+			logger.debug("Initialising User 32...");
 			user32 = User32.INSTANCE;
+			logger.debug("User 32 initialised");
 		}
 		Native.setProtected(true);
 		initialised = true;
 		notifyInitialised();
+		logger.info("Hook initialised");
 	}
 
 	public void startHook() throws Exception {
+		logger.info("Starting Hook");
 		if (!initialised) {
 			throw new Exception("Not initialised");
 		}
@@ -58,6 +68,7 @@ public class WindowsHook {
 						isHooking = true;
 						notifyStarted();
 						MSG msg = new MSG();
+						logger.info("Hook Thread Started");
 						while ((user32.GetMessage(msg, null, 0, 0)) != 0) {
 							user32.TranslateMessage(msg);
 							user32.DispatchMessage(msg);
@@ -68,14 +79,16 @@ public class WindowsHook {
 						}
 					}
 				} catch (Exception e) {
-					e.printStackTrace();
+					logger.error("Hook error:", e);
 				}
+				logger.info("Hook Thread stopped");
 			}
 		});
 		mousehook_thread.start();
 	}
 
 	public void stopHook() throws Exception {
+		logger.info("Stopping Hook");
 		if (!initialised) {
 			throw new Exception("Not initialised");
 		}
@@ -86,6 +99,7 @@ public class WindowsHook {
 		user32.UnhookWindowsHookEx(hhookMouse);
 		user32.UnhookWindowsHookEx(hhookKey);
 		notifyStopped();
+		logger.info("Hook stopped");
 	}
 
 	private interface LowLevelMouseProc extends HOOKPROC {
