@@ -81,9 +81,9 @@ public class WindowsHook {
 		if (!isHooking) {
 			throw new Exception("Not started");
 		}
+		isHooking = false;
 		user32.UnhookWindowsHookEx(hhookMouse);
 		user32.UnhookWindowsHookEx(hhookKey);
-		isHooking = false;
 		notifyStopped();
 	}
 
