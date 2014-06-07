@@ -1,4 +1,4 @@
-package com.simpleuserinputhook.example;
+package simpleuserinputhook.example;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -12,9 +12,9 @@ import javax.swing.JTextArea;
 import javax.swing.UIManager;
 import javax.swing.text.DefaultCaret;
 
-import com.simpleuserinputhook.windows.WindowsHook;
-import com.simpleuserinputhook.windows.listener.HookListener;
-import com.simpleuserinputhook.windows.listener.HookMouseEvent;
+import simpleuserinputhook.windows.WindowsHook;
+import simpleuserinputhook.windows.listener.HookListener;
+import simpleuserinputhook.windows.listener.HookMouseEvent;
 
 public class SimpleUserLoggerFrame {
 

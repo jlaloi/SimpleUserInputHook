@@ -1,8 +1,9 @@
-package com.simpleuserinputhook.windows.key;
+package simpleuserinputhook.windows.key;
 
 import java.util.List;
 
-import com.simpleuserinputhook.windows.listener.HookListener;
+import simpleuserinputhook.windows.listener.HookListener;
+
 import com.sun.jna.platform.win32.WinDef.WPARAM;
 import com.sun.jna.platform.win32.WinUser;
 import com.sun.jna.platform.win32.WinUser.KBDLLHOOKSTRUCT;

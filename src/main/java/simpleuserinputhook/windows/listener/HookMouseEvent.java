@@ -1,4 +1,4 @@
-package com.simpleuserinputhook.windows.listener;
+package simpleuserinputhook.windows.listener;
 
 public class HookMouseEvent {
 

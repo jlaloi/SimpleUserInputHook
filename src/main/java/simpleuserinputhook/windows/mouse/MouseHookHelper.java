@@ -1,10 +1,11 @@
-package com.simpleuserinputhook.windows.mouse;
+package simpleuserinputhook.windows.mouse;
 
 import java.util.List;
 
-import com.simpleuserinputhook.windows.listener.HookListener;
-import com.simpleuserinputhook.windows.listener.HookMouseEvent;
-import com.simpleuserinputhook.windows.listener.HookMouseEvent.MouseEventButton;
+import simpleuserinputhook.windows.listener.HookListener;
+import simpleuserinputhook.windows.listener.HookMouseEvent;
+import simpleuserinputhook.windows.listener.HookMouseEvent.MouseEventButton;
+
 import com.sun.jna.platform.win32.WinDef.WPARAM;
 
 public class MouseHookHelper {

@@ -5,7 +5,7 @@
 	<groupId>com.github.jlaloi</groupId>
 	<artifactId>SimpleUserInputHook</artifactId>
 	<packaging>jar</packaging>
-	<version>0.1-SNAPSHOT</version>
+	<version>0.1</version>
 
 	<name>SimpleUserInputHook</name>
 	<description>Simple user input (Keyboard + Mouse) listener using JAVA (JNA)</description>
@@ -50,6 +50,11 @@
 		<dependency>
 			<groupId>net.java.dev.jna</groupId>
 			<artifactId>jna</artifactId>
+			<version>${jna.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.java.dev.jna</groupId>
+			<artifactId>jna-platform</artifactId>
 			<version>${jna.version}</version>
 		</dependency>
 		<dependency>

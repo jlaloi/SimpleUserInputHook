@@ -1,4 +1,4 @@
-package com.simpleuserinputhook.windows.mouse;
+package simpleuserinputhook.windows.mouse;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,12 +1,13 @@
-package com.simpleuserinputhook.windows;
+package simpleuserinputhook.windows;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.simpleuserinputhook.windows.key.KeyHookHelper;
-import com.simpleuserinputhook.windows.listener.HookListener;
-import com.simpleuserinputhook.windows.mouse.MouseHookHelper;
-import com.simpleuserinputhook.windows.mouse.MouseHookStructure;
+import simpleuserinputhook.windows.key.KeyHookHelper;
+import simpleuserinputhook.windows.listener.HookListener;
+import simpleuserinputhook.windows.mouse.MouseHookHelper;
+import simpleuserinputhook.windows.mouse.MouseHookStructure;
+
 import com.sun.jna.Native;
 import com.sun.jna.Platform;
 import com.sun.jna.platform.win32.Kernel32;
