@@ -1,6 +1,6 @@
 package simpleuserinputhook.windows.listener;
 
-public class HookMouseEvent {
+public class UserInputMouseEvent {
 
 	private MouseEventButton mouseEventButton;
 	private int x;
@@ -10,7 +10,7 @@ public class HookMouseEvent {
 		left, middle, right;
 	}
 
-	public HookMouseEvent(MouseEventButton mouseEventButton, int x, int y) {
+	public UserInputMouseEvent(MouseEventButton mouseEventButton, int x, int y) {
 		super();
 		this.mouseEventButton = mouseEventButton;
 		this.x = x;

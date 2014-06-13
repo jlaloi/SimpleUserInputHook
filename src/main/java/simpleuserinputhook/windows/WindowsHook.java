@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import simpleuserinputhook.windows.key.KeyHookHelper;
-import simpleuserinputhook.windows.listener.HookListener;
+import simpleuserinputhook.windows.listener.UserInputListener;
 import simpleuserinputhook.windows.mouse.MouseHookHelper;
 import simpleuserinputhook.windows.mouse.MouseHookStructure;
 
@@ -25,7 +25,7 @@ public class WindowsHook {
 
 	private static User32 user32;
 	private static HHOOK hhookMouse, hhookKey;
-	private static List<HookListener> hookListeners = new ArrayList<HookListener>();
+	private static List<UserInputListener> hookListeners = new ArrayList<UserInputListener>();
 
 	private boolean isHooking = false;
 	private boolean initialised = false;
@@ -122,28 +122,28 @@ public class WindowsHook {
 		return isHooking;
 	}
 
-	public static void addHookListener(HookListener hookListener) {
+	public static void addHookListener(UserInputListener hookListener) {
 		hookListeners.add(hookListener);
 	}
 
-	public static boolean removeHookListener(HookListener hookListener) {
+	public static boolean removeHookListener(UserInputListener hookListener) {
 		return hookListeners.remove(hookListener);
 	}
 
 	private static void notifyInitialised() {
-		for (HookListener hookListener : hookListeners) {
+		for (UserInputListener hookListener : hookListeners) {
 			hookListener.hookInitialised();
 		}
 	}
 
 	private static void notifyStopped() {
-		for (HookListener hookListener : hookListeners) {
+		for (UserInputListener hookListener : hookListeners) {
 			hookListener.hookStopped();
 		}
 	}
 
 	private static void notifyStarted() {
-		for (HookListener hookListener : hookListeners) {
+		for (UserInputListener hookListener : hookListeners) {
 			hookListener.hookStared();
 		}
 	}

@@ -13,8 +13,9 @@ import javax.swing.UIManager;
 import javax.swing.text.DefaultCaret;
 
 import simpleuserinputhook.windows.WindowsHook;
-import simpleuserinputhook.windows.listener.HookListener;
-import simpleuserinputhook.windows.listener.HookMouseEvent;
+import simpleuserinputhook.windows.listener.UserInputAdapter;
+import simpleuserinputhook.windows.listener.UserInputListener;
+import simpleuserinputhook.windows.listener.UserInputMouseEvent;
 
 public class SimpleUserLoggerFrame {
 
@@ -65,23 +66,23 @@ public class SimpleUserLoggerFrame {
 			}
 		});
 
-		HookListener hookListener = new HookListener() {
-			public void mouseReleased(HookMouseEvent mouseEvent) {
+		UserInputListener hookListener = new UserInputAdapter() {
+			public void mouseReleased(UserInputMouseEvent mouseEvent) {
 				jTextArea.append("Mouse Released " + mouseEvent + "\n");
 			}
 
-			public void mousePressed(HookMouseEvent mouseEvent) {
+			public void mousePressed(UserInputMouseEvent mouseEvent) {
 				jTextArea.append("Mouse Pressed " + mouseEvent + "\n");
 			}
 
-			public void mouseMouved(HookMouseEvent mouseEvent) {
+			public void mouseMouved(UserInputMouseEvent mouseEvent) {
 			}
 
-			public void mouseWheelUp(HookMouseEvent mouseEvent) {
+			public void mouseWheelUp(UserInputMouseEvent mouseEvent) {
 				jTextArea.append("Mouse Wheel UP " + mouseEvent + "\n");
 			}
 
-			public void mouseWheelDown(HookMouseEvent mouseEvent) {
+			public void mouseWheelDown(UserInputMouseEvent mouseEvent) {
 				jTextArea.append("Mouse Wheel DOWN " + mouseEvent + "\n");
 			}
 
