@@ -112,7 +112,7 @@ public class SimpleUserLoggerFrame {
 		};
 
 		windowsHook = new WindowsHook();
-		WindowsHook.addHookListener(hookListener);
+		windowsHook.addHookListener(hookListener);
 		try {
 			windowsHook.init();
 		} catch (Exception e) {

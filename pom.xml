@@ -41,8 +41,6 @@
 		<maven-jar.version>2.4</maven-jar.version>
 		<maven-antrun.version>1.7</maven-antrun.version>
 		<!-- Dependencies version -->
-		<slf4j.version>1.7.5</slf4j.version>
-		<logback.version>1.0.11</logback.version>
 		<jna.version>4.1.0</jna.version>
 	</properties>
 

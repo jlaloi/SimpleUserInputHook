@@ -92,7 +92,7 @@ public class WindowsHook {
 		LRESULT callback(int nCode, WPARAM wParam, MouseHookStructure mouseHookStructure);
 	}
 
-	private static LowLevelMouseProc mouseHook() {
+	private LowLevelMouseProc mouseHook() {
 		return new LowLevelMouseProc() {
 			public LRESULT callback(int nCode, WPARAM wParam, MouseHookStructure mouseHookStructure) {
 				if (nCode >= 0) {
@@ -103,7 +103,7 @@ public class WindowsHook {
 		};
 	}
 
-	private static LowLevelKeyboardProc keyHook() {
+	private LowLevelKeyboardProc keyHook() {
 		return new LowLevelKeyboardProc() {
 			public LRESULT callback(int nCode, WPARAM wParam, KBDLLHOOKSTRUCT info) {
 				if (nCode >= 0) {
@@ -114,7 +114,7 @@ public class WindowsHook {
 		};
 	}
 
-	public void setUser32(User32 user32) {
+	public static void setUser32(User32 user32) {
 		WindowsHook.user32 = user32;
 	}
 
@@ -122,27 +122,27 @@ public class WindowsHook {
 		return isHooking;
 	}
 
-	public static void addHookListener(UserInputListener hookListener) {
+	public void addHookListener(UserInputListener hookListener) {
 		hookListeners.add(hookListener);
 	}
 
-	public static boolean removeHookListener(UserInputListener hookListener) {
+	public boolean removeHookListener(UserInputListener hookListener) {
 		return hookListeners.remove(hookListener);
 	}
 
-	private static void notifyInitialised() {
+	private void notifyInitialised() {
 		for (UserInputListener hookListener : hookListeners) {
 			hookListener.hookInitialised();
 		}
 	}
 
-	private static void notifyStopped() {
+	private void notifyStopped() {
 		for (UserInputListener hookListener : hookListeners) {
 			hookListener.hookStopped();
 		}
 	}
 
-	private static void notifyStarted() {
+	private void notifyStarted() {
 		for (UserInputListener hookListener : hookListeners) {
 			hookListener.hookStared();
 		}
